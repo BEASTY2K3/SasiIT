@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="100%" height="100%" style="background:#FFFFFF; font-family:'Plus Jakarta Sans',system-ui,sans-serif;">
+  <rect width="1000" height="520" fill="#FFFFFF"/>
+  
+  <text x="50" y="45" font-family="'Space Grotesk',sans-serif" font-size="20" font-weight="700" fill="#0F172A">Disk Defragmentation (HDD) vs. TRIM Garbage Collection (SSD)</text>
+  <text x="50" y="70" font-size="13" fill="#64748B">Comparative Mechanical Head Seeking vs NAND Flash Wear-Leveling &amp; Erase-Block Geometry</text>
+
+  <!-- Left Side: HDD Fragmentation -->
+  <g transform="translate(50, 100)">
+    <rect width="430" height="390" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="430" height="36" rx="8" fill="#0F172A"/>
+    <text x="215" y="23" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">ELECTRO-MECHANICAL HDD DEFRAG</text>
+
+    <!-- Before Defrag -->
+    <text x="20" y="65" font-size="12" font-weight="700" fill="#DC2626">Fragmented Sectors (Scattered Across Platters):</text>
+    <g transform="translate(20, 80)">
+      <rect x="0" y="0" width="45" height="30" rx="4" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1"/><text x="22" y="19" text-anchor="middle" fill="#FFF" font-size="10">File A</text>
+      <rect x="50" y="0" width="45" height="30" rx="4" fill="#EF4444" stroke="#B91C1C" stroke-width="1"/><text x="72" y="19" text-anchor="middle" fill="#FFF" font-size="10">File B</text>
+      <rect x="100" y="0" width="45" height="30" rx="4" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/><text x="122" y="19" text-anchor="middle" fill="#64748B" font-size="10">Free</text>
+      <rect x="150" y="0" width="45" height="30" rx="4" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1"/><text x="172" y="19" text-anchor="middle" fill="#FFF" font-size="10">File A</text>
+      <rect x="200" y="0" width="45" height="30" rx="4" fill="#10B981" stroke="#047857" stroke-width="1"/><text x="222" y="19" text-anchor="middle" fill="#FFF" font-size="10">File C</text>
+      <rect x="250" y="0" width="45" height="30" rx="4" fill="#EF4444" stroke="#B91C1C" stroke-width="1"/><text x="272" y="19" text-anchor="middle" fill="#FFF" font-size="10">File B</text>
+      <rect x="300" y="0" width="45" height="30" rx="4" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1"/><text x="322" y="19" text-anchor="middle" fill="#FFF" font-size="10">File A</text>
+      <rect x="350" y="0" width="40" height="30" rx="4" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/><text x="370" y="19" text-anchor="middle" fill="#64748B" font-size="10">Free</text>
+    </g>
+    <text x="20" y="135" font-size="11" fill="#64748B">Consequence: Read actuator arm oscillates back and forth &rarr; Severe latency penalty (15-25ms).</text>
+
+    <!-- After Defrag -->
+    <text x="20" y="175" font-size="12" font-weight="700" fill="#16A34A">Consolidated Contiguous Sectors (Post-Defrag):</text>
+    <g transform="translate(20, 190)">
+      <rect x="0" y="0" width="45" height="30" rx="4" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1"/><text x="22" y="19" text-anchor="middle" fill="#FFF" font-size="10">File A</text>
+      <rect x="50" y="0" width="45" height="30" rx="4" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1"/><text x="72" y="19" text-anchor="middle" fill="#FFF" font-size="10">File A</text>
+      <rect x="100" y="0" width="45" height="30" rx="4" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1"/><text x="122" y="19" text-anchor="middle" fill="#FFF" font-size="10">File A</text>
+      <rect x="150" y="0" width="45" height="30" rx="4" fill="#EF4444" stroke="#B91C1C" stroke-width="1"/><text x="172" y="19" text-anchor="middle" fill="#FFF" font-size="10">File B</text>
+      <rect x="200" y="0" width="45" height="30" rx="4" fill="#EF4444" stroke="#B91C1C" stroke-width="1"/><text x="222" y="19" text-anchor="middle" fill="#FFF" font-size="10">File B</text>
+      <rect x="250" y="0" width="45" height="30" rx="4" fill="#10B981" stroke="#047857" stroke-width="1"/><text x="272" y="19" text-anchor="middle" fill="#FFF" font-size="10">File C</text>
+      <rect x="300" y="0" width="45" height="30" rx="4" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/><text x="322" y="19" text-anchor="middle" fill="#64748B" font-size="10">Free</text>
+      <rect x="350" y="0" width="40" height="30" rx="4" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/><text x="370" y="19" text-anchor="middle" fill="#64748B" font-size="10">Free</text>
+    </g>
+    <text x="20" y="245" font-size="11" fill="#16A34A">Benefit: Single sequential track sweep &rarr; Restores peak mechanical throughput (120-180 MB/s).</text>
+
+    <!-- HDD Verdict -->
+    <rect x="20" y="275" width="390" height="95" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="35" y="300" font-size="12" font-weight="700" fill="#0F172A">Actionable Rule for HDDs:</text>
+    <text x="35" y="322" font-size="11" fill="#475569">&bull; Run Windows Defragmenter monthly on rotational hard drives.</text>
+    <text x="35" y="342" font-size="11" fill="#475569">&bull; Prevents physical mechanical head wear and speeds up boot times.</text>
+    <text x="35" y="360" font-size="11" fill="#2563EB">&bull; Path: Windows Administrative Tools &gt; Defragment and Optimize Drives.</text>
+  </g>
+
+  <!-- Right Side: SSD TRIM -->
+  <g transform="translate(520, 100)">
+    <rect width="430" height="390" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="430" height="36" rx="8" fill="#1E293B"/>
+    <text x="215" y="23" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">SOLID-STATE DRIVE (SSD) TRIM COMMAND</text>
+
+    <g transform="translate(20, 55)">
+      <rect width="390" height="75" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+      <text x="15" y="22" font-size="12" font-weight="700" fill="#DC2626">CRITICAL WARNING: NEVER DEFRAG AN SSD!</text>
+      <text x="15" y="42" font-size="11" fill="#991B1B">SSDs have zero mechanical heads. Random access latency is identical to sequential access (0.05ms).</text>
+      <text x="15" y="60" font-size="11" fill="#991B1B">Running defrag performs unnecessary write cycles, exhausting NAND TBW lifespan!</text>
+    </g>
+
+    <text x="20" y="160" font-size="12" font-weight="700" fill="#0F172A">How Modern OS Manages SSDs (TRIM Protocol):</text>
+    <g transform="translate(20, 175)">
+      <rect width="390" height="85" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+      <text x="15" y="22" font-size="11" font-weight="700" fill="#1E40AF">NAND Erase-Block Principle:</text>
+      <text x="15" y="42" font-size="11" fill="#1E3A8A">NAND Flash can read/write in Pages (4-16 KB), but can ONLY erase in whole Blocks (2-8 MB).</text>
+      <text x="15" y="62" font-size="11" fill="#1E3A8A">Without TRIM, SSD must Read-Modify-Write entire blocks &rarr; Severe Write Amplification.</text>
+    </g>
+
+    <!-- TRIM Flow Diagram -->
+    <rect x="20" y="275" width="390" height="95" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+    <text x="35" y="300" font-size="12" font-weight="700" fill="#166534">Operating System TRIM Optimization:</text>
+    <text x="35" y="322" font-size="11" fill="#14532D">&bull; OS notifies SSD controller when a file is deleted in the filesystem.</text>
+    <text x="35" y="342" font-size="11" fill="#14532D">&bull; Controller pre-erases invalid pages during idle garbage collection.</text>
+    <text x="35" y="360" font-size="11" fill="#16A34A">&bull; Maintains peak 3,500 - 7,000 MB/s NVMe write throughput indefinitely.</text>
+  </g>
+</svg>

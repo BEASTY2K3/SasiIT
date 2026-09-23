@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="100%" height="100%" style="background:#FFFFFF; font-family:'Plus Jakarta Sans',system-ui,sans-serif;">
+  <rect width="1000" height="500" fill="#FFFFFF"/>
+  
+  <text x="50" y="45" font-family="'Space Grotesk',sans-serif" font-size="20" font-weight="700" fill="#0F172A">The Golden Standard of Data Resilience: 3-2-1 Backup Strategy</text>
+  <text x="50" y="70" font-size="13" fill="#64748B">Disaster Recovery &bull; Ransomware Air-Gapping &bull; Business Continuity Architecture for Employment</text>
+
+  <!-- Pillar 1: 3 Copies -->
+  <g transform="translate(50, 110)">
+    <rect width="270" height="290" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="270" height="36" rx="8" fill="#0F172A"/>
+    <text x="135" y="23" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">RULE 1: 3 TOTAL COPIES</text>
+    
+    <text x="20" y="70" font-size="13" font-weight="700" fill="#0F172A">Never Rely on a Single Instance</text>
+    <text x="20" y="95" font-size="11" fill="#475569">1 Primary Production Data Copy</text>
+    <text x="20" y="115" font-size="11" fill="#475569">+ 2 Dedicated Backup Copies</text>
+
+    <rect x="20" y="145" width="230" height="120" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="30" y="170" font-size="11" font-weight="700" fill="#2563EB">Probability of Simultaneous Loss:</text>
+    <text x="30" y="190" font-size="11" fill="#64748B">If one drive has a 1/100 failure rate,</text>
+    <text x="30" y="210" font-size="11" fill="#64748B">3 independent copies drop failure risk to:</text>
+    <text x="30" y="235" font-family="'IBM Plex Mono',monospace" font-size="13" font-weight="700" fill="#16A34A">1 in 1,000,000 (0.0001%)</text>
+  </g>
+
+  <!-- Pillar 2: 2 Media Types -->
+  <g transform="translate(365, 110)">
+    <rect width="270" height="290" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="270" height="36" rx="8" fill="#1E293B"/>
+    <text x="135" y="23" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">RULE 2: 2 DIFFERENT MEDIA</text>
+    
+    <text x="20" y="70" font-size="13" font-weight="700" fill="#0F172A">Mitigate Systematic Vulnerability</text>
+    <text x="20" y="95" font-size="11" fill="#475569">Do not store backups on the same disk array or device type.</text>
+
+    <rect x="20" y="125" width="230" height="65" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="30" y="150" font-size="11" font-weight="700" fill="#0F172A">Medium A (Internal Workstation):</text>
+    <text x="30" y="170" font-size="11" fill="#64748B">High-Speed NVMe SSD / Working Array</text>
+
+    <rect x="20" y="200" width="230" height="65" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="30" y="225" font-size="11" font-weight="700" fill="#0F172A">Medium B (External / Network):</text>
+    <text x="30" y="245" font-size="11" fill="#64748B">NAS (Network Attached Storage) or HDD</text>
+  </g>
+
+  <!-- Pillar 3: 1 Offsite Location -->
+  <g transform="translate(680, 110)">
+    <rect width="270" height="290" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="270" height="36" rx="8" fill="#1D4ED8"/>
+    <text x="135" y="23" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">RULE 3: 1 OFFSITE COPY</text>
+    
+    <text x="20" y="70" font-size="13" font-weight="700" fill="#0F172A">Physical Disaster Protection</text>
+    <text x="20" y="95" font-size="11" fill="#475569">Guards against building fires, flooding, physical theft &amp; local power grid surges.</text>
+
+    <rect x="20" y="145" width="230" height="120" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <text x="30" y="170" font-size="11" font-weight="700" fill="#1E40AF">Modern Implementation:</text>
+    <text x="30" y="190" font-size="11" fill="#1E3A8A">&bull; Immutable Cloud Bucket (GCS / AWS S3)</text>
+    <text x="30" y="210" font-size="11" fill="#1E3A8A">&bull; Zero-Knowledge AES-256 Encryption</text>
+    <text x="30" y="235" font-size="11" font-weight="700" fill="#DC2626">&bull; Air-Gapped vs. Ransomware</text>
+  </g>
+
+  <!-- Footer Banner -->
+  <g transform="translate(50, 420)">
+    <rect width="900" height="50" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="30" y="30" font-size="12" font-weight="700" fill="#0F172A">2026 WORKPLACE STANDARD:</text>
+    <text x="250" y="30" font-size="12" fill="#475569">Never declare a backup complete without performing periodic test restores to verify image integrity.</text>
+  </g>
+</svg>

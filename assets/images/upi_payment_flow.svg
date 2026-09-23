@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="100%" height="100%" style="background:#FFFFFF; font-family:'Plus Jakarta Sans',system-ui,sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#2563EB" />
+    </marker>
+    <marker id="arrow-success" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#16A34A" />
+    </marker>
+  </defs>
+
+  <!-- Title & Subtitle -->
+  <text x="50" y="45" font-family="'Space Grotesk',sans-serif" font-size="20" font-weight="700" fill="#0F172A">Unified Payments Interface (UPI) Transaction Architecture</text>
+  <text x="50" y="70" font-size="13" fill="#64748B">End-to-End Fund Settlement Flow &bull; NPCI Unified Financial Switch &bull; ISO 8583 / 20022 Protocols</text>
+
+  <!-- Node 1: Payer / User App -->
+  <g transform="translate(50, 120)">
+    <rect width="170" height="150" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="170" height="32" rx="8" fill="#0F172A"/>
+    <text x="85" y="21" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">PAYER (CUSTOMER)</text>
+    <text x="85" y="60" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="600">PSP Mobile App</text>
+    <text x="85" y="80" text-anchor="middle" fill="#64748B" font-size="11">Google Pay / PhonePe / BHIM</text>
+    <line x1="15" y1="95" x2="155" y2="95" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="85" y="115" text-anchor="middle" fill="#2563EB" font-family="'IBM Plex Mono',monospace" font-size="11">Scans QR / Enters VPA</text>
+    <text x="85" y="133" text-anchor="middle" fill="#0F172A" font-weight="600" font-size="11">Inputs 4-6 Digit MPIN</text>
+  </g>
+
+  <!-- Node 2: Remitter Bank (Payer Bank) -->
+  <g transform="translate(280, 120)">
+    <rect width="170" height="150" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="170" height="32" rx="8" fill="#1E293B"/>
+    <text x="85" y="21" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">REMITTER BANK</text>
+    <text x="85" y="60" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="600">Core Banking (CBS)</text>
+    <text x="85" y="80" text-anchor="middle" fill="#64748B" font-size="11">Validates Account Balance</text>
+    <line x1="15" y1="95" x2="155" y2="95" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="85" y="115" text-anchor="middle" fill="#DC2626" font-family="'IBM Plex Mono',monospace" font-size="11">Debit Confirmation</text>
+    <text x="85" y="133" text-anchor="middle" fill="#64748B" font-size="11">Sends Auth to NPCI</text>
+  </g>
+
+  <!-- Node 3: NPCI Central Switch -->
+  <g transform="translate(510, 100)">
+    <rect width="200" height="190" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <rect width="200" height="36" rx="8" fill="#1D4ED8"/>
+    <text x="100" y="23" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">NPCI SWITCH (UPI)</text>
+    <text x="100" y="65" text-anchor="middle" fill="#1E3A8A" font-size="13" font-weight="600">National Payments Corp</text>
+    <text x="100" y="85" text-anchor="middle" fill="#475569" font-size="11">VPA Resolution Server</text>
+    <text x="100" y="102" text-anchor="middle" fill="#475569" font-size="11">Routing &amp; Risk Firewall</text>
+    <line x1="20" y1="115" x2="180" y2="115" stroke="#BFDBFE" stroke-width="1"/>
+    <text x="100" y="135" text-anchor="middle" fill="#1E40AF" font-family="'IBM Plex Mono',monospace" font-size="11">IMPS Interbank Settlement</text>
+    <text x="100" y="155" text-anchor="middle" fill="#1E40AF" font-size="11">Cryptographic Verification</text>
+    <text x="100" y="173" text-anchor="middle" fill="#16A34A" font-weight="700" font-size="11">Real-Time Handshake</text>
+  </g>
+
+  <!-- Node 4: Beneficiary Bank (Payee Bank) -->
+  <g transform="translate(770, 120)">
+    <rect width="180" height="150" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="180" height="32" rx="8" fill="#1E293B"/>
+    <text x="90" y="21" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">BENEFICIARY BANK</text>
+    <text x="90" y="60" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="600">Core Banking System</text>
+    <text x="90" y="80" text-anchor="middle" fill="#64748B" font-size="11">Resolves Destination VPA</text>
+    <line x1="15" y1="95" x2="165" y2="95" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="90" y="115" text-anchor="middle" fill="#16A34A" font-family="'IBM Plex Mono',monospace" font-size="11">Credit Confirmation</text>
+    <text x="90" y="133" text-anchor="middle" fill="#64748B" font-size="11">Instant Account Credit</text>
+  </g>
+
+  <!-- Connecting Arrows -->
+  <!-- 1 -> 2 -->
+  <path d="M 220 180 L 280 180" fill="none" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="250" y="172" text-anchor="middle" fill="#2563EB" font-family="'IBM Plex Mono',monospace" font-size="10" font-weight="600">1. Auth</text>
+
+  <!-- 2 -> 3 -->
+  <path d="M 450 180 L 510 180" fill="none" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="480" y="172" text-anchor="middle" fill="#2563EB" font-family="'IBM Plex Mono',monospace" font-size="10" font-weight="600">2. Debit OK</text>
+
+  <!-- 3 -> 4 -->
+  <path d="M 710 180 L 770 180" fill="none" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="740" y="172" text-anchor="middle" fill="#2563EB" font-family="'IBM Plex Mono',monospace" font-size="10" font-weight="600">3. Credit Req</text>
+
+  <!-- Return Loop (4 -> 3 -> 1) -->
+  <path d="M 860 270 L 860 360 L 135 360 L 135 270" fill="none" stroke="#16A34A" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-success)"/>
+  <text x="500" y="350" text-anchor="middle" fill="#16A34A" font-size="12" font-weight="700">4. Real-Time SMS &amp; Push Notification: Fund Settled (&lt; 2 Seconds Execution Latency)</text>
+
+  <!-- Footer Specs Grid -->
+  <g transform="translate(50, 400)">
+    <rect width="900" height="65" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="30" y="25" font-size="11" font-weight="700" fill="#475569">SECURITY ARCHITECTURE:</text>
+    <text x="30" y="45" font-size="11" fill="#0F172A">Two-Factor Authentication (Device Binding + Bank MPIN) &bull; Tokenized Virtual Payment Address (VPA)</text>
+
+    <text x="550" y="25" font-size="11" font-weight="700" fill="#475569">STANDARDS &amp; GOVERNANCE:</text>
+    <text x="550" y="45" font-size="11" fill="#0F172A">NPCI &bull; RBI Guidelines &bull; 24x7x365 Real-Time Gross Settlement on IMPS Rails</text>
+  </g>
+</svg>

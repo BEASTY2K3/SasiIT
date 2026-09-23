@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Question Paper - IT Skills for Employment - Sasi College</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 12mm 14mm 12mm 14mm;
+      @bottom-right {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-size: 8pt;
+        color: #64748b;
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      font-size: 9.2pt;
+      line-height: 1.38;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Institutional Header */
+    .exam-header {
+      border: 2px solid #0f172a;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      background: #ffffff;
+    }
+    
+    .college-name {
+      text-align: center;
+      font-size: 15pt;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #0f172a;
+    }
+    
+    .exam-title-bar {
+      border-top: 1px solid #cbd5e1;
+      border-bottom: 1px solid #cbd5e1;
+      margin: 6px 0;
+      padding: 5px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #0369a1;
+    }
+    
+    .exam-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1.5fr;
+      gap: 6px;
+      font-size: 8.5pt;
+      margin-top: 4px;
+    }
+    
+    .meta-item strong {
+      color: #0f172a;
+    }
+    
+    /* Candidate Fill-in Details */
+    .candidate-box {
+      border: 1px dashed #64748b;
+      border-radius: 4px;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 12px;
+      font-size: 8.5pt;
+      background: #f8fafc;
+    }
+    
+    .candidate-line {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    
+    .candidate-line strong {
+      white-space: nowrap;
+      color: #334155;
+    }
+    
+    .fill-dots {
+      border-bottom: 1px dotted #94a3b8;
+      flex-grow: 1;
+      height: 14px;
+    }
+    
+    /* General Instructions */
+    .instructions-bar {
+      background: #f1f5f9;
+      border-left: 3px solid #0284c7;
+      padding: 6px 10px;
+      margin-bottom: 12px;
+      font-size: 8pt;
+      color: #334155;
+    }
+    
+    .instructions-bar ol {
+      margin-left: 18px;
+      margin-top: 2px;
+    }
+    
+    /* Section Divider */
+    .section-banner {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 4px 10px;
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 10px 0 8px 0;
+      border-radius: 3px;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .section-banner span.sec-marks {
+      font-weight: 400;
+      font-size: 8pt;
+      color: #94a3b8;
+    }
+    
+    /* Question Card */
+    .question-card {
+      margin-bottom: 8px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      padding-bottom: 4px;
+      border-bottom: 1px dotted #e2e8f0;
+    }
+    
+    .question-text {
+      font-weight: 600;
+      color: #0f172a;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    
+    .q-num {
+      font-weight: 800;
+      color: #0284c7;
+      min-width: 22px;
+    }
+    
+    /* Options Grid (2x2) */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 12px;
+      padding-left: 28px;
+    }
+    
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      font-size: 8.8pt;
+      color: #334155;
+    }
+    
+    .opt-letter {
+      font-weight: 700;
+      color: #0f172a;
+      min-width: 18px;
+    }
+    
+    /* OMR Response Grid at End */
+    .omr-sheet {
+      page-break-inside: avoid;
+      break-inside: avoid;
+      border: 1px solid #0f172a;
+      border-radius: 4px;
+      padding: 8px 12px;
+      margin-top: 14px;
+      background: #ffffff;
+    }
+    
+    .omr-title {
+      font-size: 9pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 6px;
+      color: #0f172a;
+    }
+    
+    .omr-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px 14px;
+    }
+    
+    .omr-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 8pt;
+      padding: 2px 0;
+      border-bottom: 1px dashed #f1f5f9;
+    }
+    
+    .omr-q-num {
+      font-weight: 700;
+      width: 22px;
+      color: #475569;
+    }
+    
+    .bubbles {
+      display: flex;
+      gap: 4px;
+    }
+    
+    .bubble {
+      width: 13px;
+      height: 13px;
+      border: 1px solid #334155;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6.5pt;
+      font-weight: 600;
+      color: #475569;
+    }
+    
+    .sign-row {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: #475569;
+      border-top: 1px solid #cbd5e1;
+      padding-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Institutional Header -->
+  <header class="exam-header">
+    <div class="college-name">SASI COLLEGE</div>
+    
+    <div class="exam-title-bar">
+      <span>IT SKILLS FOR EMPLOYMENT</span>
+      <span>MULTIPLE CHOICE QUESTION ASSESSMENT</span>
+    </div>
+    
+    <div class="exam-meta-grid">
+      <div class="meta-item"><strong>Max Marks:</strong> 25 Marks</div>
+      <div class="meta-item"><strong>Duration:</strong> 45 Minutes</div>
+      <div class="meta-item"><strong>Total Questions:</strong> 25 MCQs</div>
+      <div class="meta-item"><strong>Marking:</strong> 1 Mark Each (No Negative Marks)</div>
+    </div>
+  </header>
+
+  <!-- Candidate Details Filling Block -->
+  <div class="candidate-box">
+    <div class="candidate-line">
+      <strong>Student Name:</strong>
+      <span class="fill-dots"></span>
+    </div>
+    <div class="candidate-line">
+      <strong>Register / Roll No:</strong>
+      <span class="fill-dots"></span>
+    </div>
+    <div class="candidate-line">
+      <strong>Date / Dept:</strong>
+      <span class="fill-dots"></span>
+    </div>
+  </div>
+
+  <!-- Instructions to Students -->
+  <div class="instructions-bar">
+    <strong>Instructions to Candidates:</strong>
+    <ol>
+      <li>All 25 questions are compulsory. Each question carries exactly 1 mark. There is no negative marking.</li>
+      <li>Each question contains four options: (A), (B), (C), and (D). Shade or mark the correct option clearly.</li>
+      <li>Record your final answers on the OMR Response Sheet provided on the final page of this booklet.</li>
+    </ol>
+  </div>
+
+  <div class="section-banner">
+    <span>SECTION A &bull; UNIT 1: COMPUTER HARDWARE & FUNDAMENTALS</span>
+    <span class="sec-marks">[5 Questions &bull; 5 Marks]</span>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">01.</span>
+      <span>Which internal component is widely known as the 'Brain' of the computer because it interprets and executes program instructions and performs all calculations?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Computer Monitor</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Hard Disk Drive (HDD)</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Central Processing Unit (CPU)</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Computer Keyboard</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">02.</span>
+      <span>Which type of computer memory is 'volatile', meaning that all data stored in it is instantly erased when the computer is turned off or restarted?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Read-Only Memory (ROM)</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Random Access Memory (RAM)</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Hard Disk Drive (HDD)</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>USB Pen Drive</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">03.</span>
+      <span>Which of the following devices is strictly an **Input Device** used to enter data, text, and commands into the computer?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Computer Keyboard</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Display Monitor</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Laser Printer</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Audio Speaker</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">04.</span>
+      <span>What type of modern storage drive uses electronic flash memory chips with zero spinning parts, providing significantly faster boot and file opening speeds than a mechanical Hard Disk?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Compact Disc (CD-ROM)</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Floppy Disk</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Magnetic Cassette Tape</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Solid State Drive (SSD)</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">05.</span>
+      <span>A computer network that interconnects computers and devices within a limited physical geographical area, such as a single computer lab, office building, or college campus, is known as a:</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Wide Area Network (WAN)</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Local Area Network (LAN)</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Metropolitan Area Network (MAN)</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Global Satellite Network</span></div>
+    </div>
+  </div>
+
+  <div class="section-banner">
+    <span>SECTION B &bull; UNIT 2: OPERATING SYSTEMS & WINDOWS MANAGEMENT</span>
+    <span class="sec-marks">[5 Questions &bull; 5 Marks]</span>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">06.</span>
+      <span>What is the primary function of an **Operating System** (such as Windows 10, macOS, or Linux) on a personal computer?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>To act as a bridge between computer hardware and the user, managing software programs, files, and memory</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>To design and edit marketing brochures</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>To supply physical electrical power from the wall socket</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>To manufacture microprocessor chips</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">07.</span>
+      <span>Which standard keyboard shortcut is used in Windows and Microsoft Office to **Copy** selected text, images, or files to the clipboard?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Ctrl + X</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Ctrl + V</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Ctrl + C</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Ctrl + Z</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">08.</span>
+      <span>When you delete a document or folder from your hard drive by pressing the `Delete` key in Windows, where does it temporarily go so you can easily restore it if needed?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Device Manager</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Control Panel</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Windows Update</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Recycle Bin</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">09.</span>
+      <span>Which built-in Windows maintenance tool safely scans your hard drive to find and delete temporary files, system cache, and empty the Recycle Bin to free up disk storage?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Disk Cleanup (or Storage Sense)</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Paint 3D</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Windows Media Player</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Notepad</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">10.</span>
+      <span>When stepping away from your workstation or computer desk in an office or college lab, which keyboard shortcut instantly **Locks** your Windows screen to prevent unauthorized access?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Alt + F4</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Windows Key + L</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Ctrl + Shift + Esc</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Windows Key + P</span></div>
+    </div>
+  </div>
+
+  <div class="section-banner">
+    <span>SECTION C &bull; UNIT 3: OFFICE PRODUCTIVITY TRIAD</span>
+    <span class="sec-marks">[5 Questions &bull; 5 Marks]</span>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">11.</span>
+      <span>Which application software in the Microsoft Office suite is specifically designed for writing, editing, and formatting professional resumes, formal letters, and reports?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Microsoft Excel</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Microsoft Access</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Microsoft Word</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Microsoft PowerPoint</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">12.</span>
+      <span>In Microsoft Excel, what symbol MUST you type as the very first character in a cell to tell Excel that you are entering a mathematical formula or calculation?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Plus sign (`+`)</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Hashtag (`#`)</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Dollar sign (`$`)</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Equal sign (`=`)</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">13.</span>
+      <span>Which Excel function is used to calculate the combined total of numbers across a specified range of cells (for example, adding all numbers from cell A1 to A10)?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>`=ADD(A1:A10)`</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>`=SUM(A1:A10)`</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>`=TOTAL(A1:A10)`</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>`=COUNT(A1:A10)`</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">14.</span>
+      <span>In Microsoft PowerPoint, what is an individual page or visual screen within a presentation deck called?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Slide</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Worksheet</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Document</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Artboard</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">15.</span>
+      <span>Which functional shortcut key is used in Microsoft PowerPoint to immediately launch the Slide Show in full-screen presentation mode starting from the first slide?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>F1</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>F7</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>F5</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>F12</span></div>
+    </div>
+  </div>
+
+  <div class="section-banner">
+    <span>SECTION D &bull; UNIT 4: INTERNET, CLOUD & DIGITAL SERVICES</span>
+    <span class="sec-marks">[5 Questions &bull; 5 Marks]</span>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">16.</span>
+      <span>In a complete website web address such as `https://www.google.com`, what does the common prefix acronym **WWW** stand for?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Wide World Web</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Western Wireless Web</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>World Web Wireless</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>World Wide Web</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">17.</span>
+      <span>Which of the following is a **Web Browser** application used to open, view, and navigate pages and websites across the internet?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Google Chrome</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Microsoft Excel</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Adobe Photoshop</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Windows Media Player</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">18.</span>
+      <span>When sending an official email to multiple recipients, which address field should you use to hide recipient email addresses from each other to preserve their privacy?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>To</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>CC (Carbon Copy)</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>BCC (Blind Carbon Copy)</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Subject Line</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">19.</span>
+      <span>Which widely used cloud storage service provided by Google gives users 15 GB of free online storage to save files, backup photos, and share documents from anywhere?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Google Maps</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Google Drive</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Google Play Store</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Google Translate</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">20.</span>
+      <span>When using UPI mobile payment apps (such as Google Pay, PhonePe, or Paytm), which is the most critical security rule regarding your secret **UPI PIN**?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>You must enter your UPI PIN whenever someone wants to send or transfer money into your bank account.</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>You should share your secret UPI PIN with customer support executives over the phone.</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>You must enter your UPI PIN to claim lottery or refund prizes from unknown callers.</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>You NEVER enter your UPI PIN to receive money; entering your UPI PIN is only required when you are transferring (paying) money OUT of your account.</span></div>
+    </div>
+  </div>
+
+  <div class="section-banner">
+    <span>SECTION E &bull; UNIT 5: CYBER SECURITY, THREATS & ONLINE SAFETY</span>
+    <span class="sec-marks">[5 Questions &bull; 5 Marks]</span>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">21.</span>
+      <span>What broad term is used to describe any harmful computer software (such as viruses, worms, and spyware) intentionally designed to damage, spy on, or steal data from a computer?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Malware (Malicious Software)</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Hardware</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Freeware</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Firmware</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">22.</span>
+      <span>What is the primary function of installing an **Antivirus** software application (such as Windows Defender or Quick Heal) on your computer system?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>To increase the physical speed of your broadband internet router</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>To automatically repair damaged hardware cables and monitor screens</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>To detect, prevent, quarantine, and remove malicious viruses and security threats from your computer</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>To increase the physical storage size of your hard drive</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">23.</span>
+      <span>What type of online cyber scam involves fraudulent emails or fake website messages that pretend to be from trusted banks or organizations to trick you into giving away your passwords or card numbers?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Defragmentation</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Phishing</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Screen Casting</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>Data Compression</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">24.</span>
+      <span>Which of the following practices creates the strongest, most secure **Password** to protect your personal and email accounts from hackers?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>Using your own first name followed by `123` (e.g., `Rahul123`)</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>Using your date of birth or mobile telephone number</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>Using the word `password` so you do not forget it</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>A combination of at least 8 to 12 characters including uppercase and lowercase letters, numbers, and special symbols (e.g., `@`, `#`, `!`)</span></div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="question-text">
+      <span class="q-num">25.</span>
+      <span>Which official National Cyber Crime toll-free helpline number has been launched by the Government of India for citizens to immediately report financial cyber frauds and digital online crimes?</span>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><span class="opt-letter">(A)</span> <span>100</span></div>
+      <div class="option-item"><span class="opt-letter">(B)</span> <span>108</span></div>
+      <div class="option-item"><span class="opt-letter">(C)</span> <span>1930</span></div>
+      <div class="option-item"><span class="opt-letter">(D)</span> <span>1098</span></div>
+    </div>
+  </div>
+
+  <!-- Standardized OMR Response Sheet -->
+  <div class="omr-sheet">
+    <div class="omr-title">Candidate OMR Response Sheet (Questions 01 &ndash; 25)</div>
+    <div class="omr-grid">
+      <div class="omr-col">
+        <div class="omr-row">
+          <span class="omr-q-num">01</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">02</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">03</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">04</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">05</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+      </div>
+      <div class="omr-col">
+        <div class="omr-row">
+          <span class="omr-q-num">06</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">07</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">08</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">09</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">10</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+      </div>
+      <div class="omr-col">
+        <div class="omr-row">
+          <span class="omr-q-num">11</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">12</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">13</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">14</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">15</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+      </div>
+      <div class="omr-col">
+        <div class="omr-row">
+          <span class="omr-q-num">16</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">17</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">18</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">19</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">20</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+      </div>
+      <div class="omr-col">
+        <div class="omr-row">
+          <span class="omr-q-num">21</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">22</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">23</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">24</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+        <div class="omr-row">
+          <span class="omr-q-num">25</span>
+          <div class="bubbles">
+            <span class="bubble">A</span>
+            <span class="bubble">B</span>
+            <span class="bubble">C</span>
+            <span class="bubble">D</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sign-row">
+      <span>Candidate's Signature: _______________________</span>
+      <span>Invigilator's Verification Signature: _______________________</span>
+    </div>
+  </div>
+
+</body>
+</html>
