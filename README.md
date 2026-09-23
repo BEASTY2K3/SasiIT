@@ -224,3 +224,66 @@ Emoji Count: 0 (100% Minimalist Swiss Editorial Light Design System)
 - [x] All 275 slides mapped directly to the university syllabus and divided into the 2-Day schedule (08:30 AM &ndash; 04:30 PM).
 - [x] 30 verified visual assets properly aligned in 12-column Bento layouts with captions, badges, and bullet analysis points.
 
+---
+
+## Project Structure &amp; Vercel Deployment
+
+### Directory Layout
+
+```
+SasiIT/
+├── public/                       # Deployable static web directory served by Vercel
+│   ├── index.html                # Master 275-Slide Presentation Deck
+│   ├── unit4_5_presentation.html # Unit 4 & 5 Visual Deck (42 Topics)
+│   ├── question_paper.html       # 25-MCQ Mid-Semester Exam Paper
+│   ├── answer_key.html           # Detailed Solutions & Rationales
+│   ├── question_paper.pdf        # Handout PDF for Exam Paper
+│   ├── answer_key.pdf            # Handout PDF for Answer Key
+│   ├── styles.css                # Master Deck CSS
+│   ├── app.js                    # Master Deck Interaction Engine
+│   ├── unit4_5_styles.css        # Unit 4 & 5 CSS
+│   ├── unit4_5_app.js            # Unit 4 & 5 Interaction Engine
+│   └── assets/                   # Static visual media
+│       └── images/               # 31 SVG and high-resolution image diagrams
+├── scripts/                      # Curriculum data & build generators (offline)
+│   ├── build_presentation.py     # Generates public/unit4_5_presentation.html
+│   ├── build_full_deck.py        # Presentation data structures
+│   ├── generate_exam_papers.py   # Generates public/question_paper.html & answer_key.html
+│   └── data_unit*.py             # Modular topic data sources
+├── vercel.json                   # Vercel CDN, output directory, and routing configuration
+├── .vercelignore                 # Excludes scripts/ and python caches from build
+├── package.json                  # Dev commands and metadata
+└── README.md                     # Documentation
+```
+
+### Deploying to Vercel
+
+#### Method 1: Git Integration (Recommended)
+1. Push this repository to GitHub, GitLab, or Bitbucket:
+   ```bash
+   git add .
+   git commit -m "Restructure project for Vercel deployment"
+   git push origin main
+   ```
+2. Import the repository in [Vercel Dashboard](https://vercel.com/new).
+3. Vercel automatically detects `vercel.json` and deploys the `public/` directory with clean URLs enabled. No manual configuration needed!
+
+#### Method 2: Vercel CLI
+```bash
+npx vercel
+```
+When prompted, confirm default settings. Vercel will deploy using `vercel.json`.
+
+### Local Development
+
+Preview the static site locally:
+```bash
+# Using Node / npx
+npm run dev
+
+# Or using Python 3
+python3 -m http.server 3000 --directory public
+```
+Visit `http://localhost:3000` in your web browser.
+
+

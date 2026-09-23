@@ -11,6 +11,9 @@ Options are evenly and naturally distributed across (A), (B), (C), and (D).
 import os
 import subprocess
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_DIR = os.path.join(SCRIPT_DIR, "..", "public")
+
 questions_data = [
     # -------------------------------------------------------------
     # UNIT 1: COMPUTER HARDWARE & FUNDAMENTALS (Q01 - Q05)
@@ -879,10 +882,12 @@ qp_html += """    </div>
 </html>
 """
 
-with open("question_paper.html", "w", encoding="utf-8") as f:
+qp_path = os.path.join(OUTPUT_DIR, "question_paper.html")
+with open(qp_path, "w", encoding="utf-8") as f:
     f.write(qp_html)
 
-print("Saved question_paper.html")
+print(f"Saved {qp_path}")
+
 
 
 # -------------------------------------------------------------
@@ -1157,7 +1162,9 @@ ak_html += """
 </html>
 """
 
-with open("answer_key.html", "w", encoding="utf-8") as f:
+ak_path = os.path.join(OUTPUT_DIR, "answer_key.html")
+with open(ak_path, "w", encoding="utf-8") as f:
     f.write(ak_html)
 
-print("Saved answer_key.html")
+print(f"Saved {ak_path}")
+

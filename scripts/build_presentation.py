@@ -237,9 +237,12 @@ html_parts.append("""      </div>
 </html>
 """)
 
-output_path = "/Volumes/HARI/Program files/Sasi College/unit4_5_presentation.html"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_DIR = os.path.join(SCRIPT_DIR, "..", "public")
+output_path = os.path.join(OUTPUT_DIR, "unit4_5_presentation.html")
 with open(output_path, "w", encoding="utf-8") as f:
     f.write("".join(html_parts))
 
 file_size = os.path.getsize(output_path)
 print(f"Successfully generated {output_path} ({file_size:,} bytes, {total_count} slides)!")
+

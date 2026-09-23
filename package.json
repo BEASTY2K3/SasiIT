@@ -1,0 +1,23 @@
+{
+  "name": "sasi-it-skills-presentation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IT Skills for Employment - Master Presentation Suite",
+  "scripts": {
+    "dev": "npx serve public",
+    "start": "npx serve public",
+    "build": "echo 'Static assets ready in public/'",
+    "build:presentation": "python3 scripts/build_presentation.py",
+    "build:exams": "python3 scripts/generate_exam_papers.py",
+    "build:all": "python3 scripts/build_presentation.py && python3 scripts/generate_exam_papers.py"
+  },
+  "keywords": [
+    "presentation",
+    "slides",
+    "education",
+    "it-skills",
+    "sasi-college"
+  ],
+  "author": "Sasi College",
+  "license": "UNLICENSED"
+}
